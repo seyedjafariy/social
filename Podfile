@@ -8,10 +8,10 @@ target 'social' do
   # Pods for social
 
 
+
 pod 'Firebase/Storage'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
-
-
 pod 'Firebase/Core'
+pod 'FBSDKLoginKit'
 end

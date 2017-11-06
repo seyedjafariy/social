@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6366020C1FB0491300114DC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6366020B1FB0491300114DC8 /* AppDelegate.swift */; };
-		6366020E1FB0491300114DC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6366020D1FB0491300114DC8 /* ViewController.swift */; };
+		6366020E1FB0491300114DC8 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6366020D1FB0491300114DC8 /* SignInVC.swift */; };
 		636602111FB0491300114DC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6366020F1FB0491300114DC8 /* Main.storyboard */; };
 		636602131FB0491300114DC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636602121FB0491300114DC8 /* Assets.xcassets */; };
 		636602161FB0491300114DC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636602141FB0491300114DC8 /* LaunchScreen.storyboard */; };
@@ -26,7 +26,7 @@
 		5C06763B3E54C30446B032FB /* Pods-social.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-social.release.xcconfig"; path = "Pods/Target Support Files/Pods-social/Pods-social.release.xcconfig"; sourceTree = "<group>"; };
 		636602081FB0491300114DC8 /* social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = social.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6366020B1FB0491300114DC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6366020D1FB0491300114DC8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6366020D1FB0491300114DC8 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		636602101FB0491300114DC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		636602121FB0491300114DC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		636602151FB0491300114DC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 		636602201FB049E700114DC8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6366020D1FB0491300114DC8 /* ViewController.swift */,
+				6366020D1FB0491300114DC8 /* SignInVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -240,6 +240,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-social/Pods-social-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -247,6 +250,9 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -284,7 +290,7 @@
 			files = (
 				6366022D1FB079E600114DC8 /* SignInBtn.swift in Sources */,
 				6366022B1FB078DD00114DC8 /* SocialTxtField.swift in Sources */,
-				6366020E1FB0491300114DC8 /* ViewController.swift in Sources */,
+				6366020E1FB0491300114DC8 /* SignInVC.swift in Sources */,
 				636602291FB076D300114DC8 /* RoundBtn.swift in Sources */,
 				6366020C1FB0491300114DC8 /* AppDelegate.swift in Sources */,
 				636602241FB06FD900114DC8 /* ShadowView.swift in Sources */,
