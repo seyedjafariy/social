@@ -12,6 +12,7 @@ import Firebase
 
 class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let TAG = "FeedVC:"
+    var posts = [Post]()
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,9 +23,20 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         
-        DataService.ds.REF_POSTS.observe(.value, with: {(snap) in
+        DataService.ds.REF_POSTS.observe(.value, with: {(snapshot) in
+            print("\(self.TAG) \(snapshot.value)")
             
-            print("\(self.TAG) \(snap.value)")
+            if let snapshots = snapshot.children.allObjects as? [DataSnapshot]{
+                for snap in snapshots{
+                    print ("\(self.TAG) snap= \(snap)")
+                    if let postDict = snap.value as? Dictionary<String, AnyObject>{
+                        let key = snap.key
+                        let post = Post(postKey: key, postData: postDict)
+                        self.posts.append(post)
+                    }
+                }
+            }
+            self.tableView.reloadData()
         })
         
     }
@@ -34,10 +46,13 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let post = posts[indexPath.row]
+        print("\(TAG) post caption: \(post.caption)")
+        
         return tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
     }
     
