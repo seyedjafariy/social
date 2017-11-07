@@ -22,6 +22,11 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         
+        DataService.ds.REF_POSTS.observe(.value, with: {(snap) in
+            
+            print("\(self.TAG) \(snap.value)")
+        })
+        
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -53,6 +58,6 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         
     }
-//    
+//
 
 }
