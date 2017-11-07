@@ -21,6 +21,7 @@
 		63A1B8B41FB1725300D42734 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A1B8B31FB1725300D42734 /* FeedVC.swift */; };
 		63A1B8B61FB1A6C100D42734 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A1B8B51FB1A6C100D42734 /* CircleView.swift */; };
 		63A1B8B81FB1B7E200D42734 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A1B8B71FB1B7E200D42734 /* PostCell.swift */; };
+		63A1B8BC1FB1D83C00D42734 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A1B8BB1FB1D83C00D42734 /* DataService.swift */; };
 		EDB9A9B969CF2E597B582D3C /* Pods_social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6BDE5BEC240070F7B3CEC4D /* Pods_social.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		63A1B8B31FB1725300D42734 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		63A1B8B51FB1A6C100D42734 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		63A1B8B71FB1B7E200D42734 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		63A1B8BB1FB1D83C00D42734 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		E6BDE5BEC240070F7B3CEC4D /* Pods_social.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_social.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 		6366020A1FB0491300114DC8 /* social */ = {
 			isa = PBXGroup;
 			children = (
+				63A1B8BA1FB1D82700D42734 /* Services */,
 				636602251FB0747900114DC8 /* Util */,
 				636602221FB049F300114DC8 /* Resources */,
 				636602211FB049EE00114DC8 /* Model */,
@@ -153,6 +156,14 @@
 				636602261FB0748D00114DC8 /* Constants.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		63A1B8BA1FB1D82700D42734 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				63A1B8BB1FB1D83C00D42734 /* DataService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +315,7 @@
 				63A1B8B41FB1725300D42734 /* FeedVC.swift in Sources */,
 				6366022B1FB078DD00114DC8 /* SocialTxtField.swift in Sources */,
 				6366020E1FB0491300114DC8 /* SignInVC.swift in Sources */,
+				63A1B8BC1FB1D83C00D42734 /* DataService.swift in Sources */,
 				636602291FB076D300114DC8 /* RoundBtn.swift in Sources */,
 				6366020C1FB0491300114DC8 /* AppDelegate.swift in Sources */,
 				636602241FB06FD900114DC8 /* ShadowView.swift in Sources */,

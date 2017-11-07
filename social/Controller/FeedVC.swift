@@ -36,23 +36,23 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
     }
     
-//    @IBAction func signOut(_ sender: Any) {
-//        
-//        do {
-//            try Auth.auth().signOut()
-//        } catch {
-//            print ("\(self.TAG) sign out failed")
-//        }
-//        
-//        if let didRemove: Bool = KeychainWrapper.standard.removeObject(forKey: KEY_UID){
-//            print("FeedVC: keychain removed: \(didRemove)")
-//        }
-//        
-//        dismiss(animated: true, completion: nil)
-//        performSegue(withIdentifier: "signOut", sender: nil)
-//        
-//        
-//    }
+    @IBAction func signOut(_ sender: Any) {
+        
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print ("\(self.TAG) sign out failed")
+        }
+        
+        if let didRemove: Bool = KeychainWrapper.standard.removeObject(forKey: KEY_UID){
+            print("FeedVC: keychain removed: \(didRemove)")
+        }
+        
+        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "signOut", sender: nil)
+        
+        
+    }
 //    
 
 }
