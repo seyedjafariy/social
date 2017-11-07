@@ -8,7 +8,7 @@ target 'social' do
   # Pods for social
 
 
-
+pod 'SwiftKeychainWrapper'
 pod 'Firebase/Storage'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'

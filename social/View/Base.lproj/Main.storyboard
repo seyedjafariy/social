@@ -99,6 +99,9 @@
                                         <state key="normal" title="Sign In">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="0.87291309928767113" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="emailSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GH7-6b-lqn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -123,10 +126,51 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTxtField" destination="IAf-v5-M79" id="M36-7Y-83R"/>
+                        <outlet property="passTxtField" destination="tV8-xd-NyY" id="aoy-h4-1QQ"/>
+                        <segue destination="MJR-2O-aXK" kind="show" identifier="goToFeeds" id="xVu-6l-8A0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-71.200000000000003" y="133.5832083958021"/>
+        </scene>
+        <!--FeedVC-->
+        <scene sceneID="bTm-o7-zNL">
+            <objects>
+                <viewController id="MJR-2O-aXK" customClass="FeedVC" customModule="social" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Trq-tc-bZU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fxh-pO-6fQ">
+                                <rect key="frame" x="37" y="318" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="2SA-56-MTe"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="signOut:" destination="MJR-2O-aXK" eventType="touchUpInside" id="udb-y2-laF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.32020399305555558" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Fxh-pO-6fQ" firstAttribute="centerX" secondItem="Trq-tc-bZU" secondAttribute="centerX" id="3wP-x4-1NV"/>
+                            <constraint firstItem="Fxh-pO-6fQ" firstAttribute="centerY" secondItem="Trq-tc-bZU" secondAttribute="centerY" id="BiS-Jl-Iyc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ilk-DS-5g5"/>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="signOut" id="2uM-x9-uAb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="66w-kw-5Ci" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="994" y="134"/>
         </scene>
     </scenes>
     <resources>
