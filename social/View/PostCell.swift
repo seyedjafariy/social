@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PostCell: UITableViewCell {
 
@@ -15,15 +16,44 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var postImg: UIImageView!
     @IBOutlet weak var usernameImg: UILabel!
     @IBOutlet weak var profileImg: CircleView!
+    
+    var post: Post!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func configureCell(post: Post, img: UIImage? = nil){
+        self.post = post
+        
+        self.captionTxt.text = post.caption
+        self.likeLbl.text = "\(post.likes)"
+        
+        if img != nil{
+            self.postImg.image = img
+        }else {
+            if let imageUrl = post.imageUrl as String?{
+                let ref = Storage.storage().reference(forURL: imageUrl)
+                
+                ref.getData(maxSize: 2 * 1024 * 1024, completion: {(data, error) in
+                    if error != nil {
+                        print("image failed to download from storage")
+                    }else {
+                        print("image succesfully downloaded")
+                        if let imgData = data {
+                            if let img = UIImage(data: imgData){
+                                self.postImg.image = img
+                                FeedVC.imageCache.setObject(img, forKey: post.imageUrl as NSString)
+                            }
+                        }
+                    }
+                })
+            }
+            
+        }
+        
     }
 
 }
