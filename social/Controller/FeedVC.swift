@@ -32,10 +32,11 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
         
-        DataService.ds.REF_POSTS.observe(.value, with: {(snapshot) in
+        DataService.ds.REF_POSTS.observe(.value, andPreviousSiblingKeyWith: {(snapshot, string) in {
             print("\(self.TAG) \(snapshot.value)")
             
             if let snapshots = snapshot.children.allObjects as? [DataSnapshot]{
+                self.posts.removeAll()
                 for snap in snapshots{
                     print ("\(self.TAG) snap= \(snap)")
                     if let postDict = snap.value as? Dictionary<String, AnyObject>{
@@ -46,7 +47,26 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                 }
             }
             self.tableView.reloadData()
-        })
+            
+            
+            }}, withCancel: nil)
+        
+//        DataService.ds.REF_POSTS.observe(.value, with: {(snapshot) in
+//            print("\(self.TAG) \(snapshot.value)")
+//
+//            if let snapshots = snapshot.children.allObjects as? [DataSnapshot]{
+//                self.posts.removeAll()
+//                for snap in snapshots{
+//                    print ("\(self.TAG) snap= \(snap)")
+//                    if let postDict = snap.value as? Dictionary<String, AnyObject>{
+//                        let key = snap.key
+//                        let post = Post(postKey: key, postData: postDict)
+//                        self.posts.append(post)
+//                    }
+//                }
+//            }
+//            self.tableView.reloadData()
+//        })
         
     }
     
@@ -132,12 +152,32 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                     print("\(self.TAG) image successfully sent to firebase")
                     
                     let downloadUrl = metaData?.downloadURL()?.absoluteString
+                    if let url = downloadUrl{
+                        self.postToFirebase(imgUrl: url)
+                    }
                 }
             })
         }
     }
     
-    //
+    func postToFirebase(imgUrl: String){
+        let post : Dictionary<String, Any> = [
+            "caption": captionTxtField.text!,
+            "imageUrl": imgUrl,
+            "likes": 0
+        ]
+        
+        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        
+        captionTxtField.text = ""
+        imgSelected = false
+        addImg.image = UIImage(named: "add-image")
+        
+        tableView.reloadData()
+    }
+    
+    
     
 }
 

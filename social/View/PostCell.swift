@@ -10,24 +10,30 @@ import UIKit
 import Firebase
 
 class PostCell: UITableViewCell {
-
+    
     @IBOutlet weak var likeLbl: UILabel!
     @IBOutlet weak var captionTxt: UITextView!
     @IBOutlet weak var postImg: UIImageView!
     @IBOutlet weak var usernameImg: UILabel!
     @IBOutlet weak var profileImg: CircleView!
+    @IBOutlet weak var likeImg: UIImageView!
+    var likesRef : DatabaseReference!
     
     var post: Post!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(likeTapped))
+        tap.numberOfTapsRequired = 1
+        likeImg.addGestureRecognizer(tap)
+        likeImg.isUserInteractionEnabled = true
     }
-
+    
     
     func configureCell(post: Post, img: UIImage? = nil){
         self.post = post
-        
+        likesRef = DataService.ds.REF_USER_CURRENT.child("likes").child(post.postKey)
         self.captionTxt.text = post.caption
         self.likeLbl.text = "\(post.likes)"
         
@@ -54,6 +60,62 @@ class PostCell: UITableViewCell {
             
         }
         
+        likesRef.observeSingleEvent(of: .value, with: {(snapshot) in
+            if let _ = snapshot.value as? NSNull {
+                self.likeImg.image = UIImage(named: "empty-heart")
+            } else {
+                self.likeImg.image = UIImage(named: "filled-heart")
+            }
+        })
     }
-
+    
+    @objc func likeTapped(sender: UITapGestureRecognizer){
+        
+        
+        
+        likesRef.observeSingleEvent(of: .value, with: {(snapshot) in
+            if let _ = snapshot.value as? NSNull {
+                self.likeImg.image = UIImage(named: "filled-heart")
+                self.post.adjustLikes(addLike: true)
+                self.likesRef.setValue(true)
+            } else {
+                self.likeImg.image = UIImage(named: "empty-heart")
+                self.post.adjustLikes(addLike: false)
+                self.likesRef.removeValue()
+            }
+        })
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

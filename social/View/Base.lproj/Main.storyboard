@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -263,7 +264,7 @@
                                                                         </imageView>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Sgw-GB-qXZ">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Sgw-GB-qXZ">
                                                                     <rect key="frame" x="0.0" y="68" width="327" height="197.5"/>
                                                                 </imageView>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="D5d-rP-je8">
@@ -305,6 +306,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="pCG-k2-moc" secondAttribute="trailing" constant="8" id="f8N-K9-NC7"/>
                                                         <constraint firstAttribute="bottom" secondItem="J3U-pc-xYb" secondAttribute="bottom" constant="40" id="fvC-3U-NQY"/>
                                                         <constraint firstItem="pCG-k2-moc" firstAttribute="top" secondItem="J3U-pc-xYb" secondAttribute="bottom" constant="8" id="krT-Q6-hKG"/>
+                                                        <constraint firstAttribute="width" secondItem="Hf5-D8-4nO" secondAttribute="height" multiplier="49:53" id="lmf-0x-SUJ"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -318,6 +320,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionTxt" destination="D5d-rP-je8" id="p25-fe-4N6"/>
+                                            <outlet property="likeImg" destination="1hb-1y-hzW" id="dkt-ma-Reo"/>
                                             <outlet property="likeLbl" destination="ubX-bh-bp7" id="XEU-9x-sr6"/>
                                             <outlet property="postImg" destination="Sgw-GB-qXZ" id="308-Mx-wkM"/>
                                             <outlet property="profileImg" destination="viJ-bp-dxV" id="1eW-mH-HvL"/>
